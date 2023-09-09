@@ -1,28 +1,39 @@
 #ifndef NAVES_H_INCLUDED
 #define NAVES_H_INCLUDED
 
-struct Passageiro {
+#include <stdbool.h>
+
+struct Tripulacao {
     char nome[20];
     int idade;
-    char planeta[20];
+
+//  Checagem para prioridade pessoal
+    int IsCrianca;
+    int IsIdoso;
+    int IsEnfermo;
+    int IsClandestino;
+    int IsNobre;
+
+    char planeta[50];
+
+    int prioridade_pessoal;
     int identificador;
 };
 
-struct Recurso {
+struct Compartimentos {
     char compartimento1[20];
     char compartimento2[20];
     char compartimento3[20];
+
+    int code[3];
 };
 
 
 struct Naves {
-    struct Passageiro* passageiro;
-    struct Recurso recursos;
-    int codigo;
-    int tripulacao;
-    int enfermos;
-    int clandestinos;
-    int nobres;
+    struct Tripulacao* passageiro;
+    struct Compartimentos recursos;
+
+    int ultimo_codigo;
 
     int prioridade;
 };
