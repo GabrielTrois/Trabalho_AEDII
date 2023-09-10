@@ -25,7 +25,7 @@ int main() {
     int read2 = 0;
     int records2 = 0;
 
-    int i, j;
+    int i, j, k = 0;
 
     do{
         read2 = fscanf(file1,
@@ -90,24 +90,43 @@ int main() {
         naves[i].passageiro = (struct Tripulacao*)malloc(naves[i].lotacao*sizeof(struct Tripulacao));
         for(j = 0; j < naves[i].lotacao; j++) {
             
-            strcpy(naves[i].passageiro[j].nome, passageiro[j].nome);
-            naves[i].passageiro[j].idade = passageiro[j].idade;
+            strcpy(naves[i].passageiro[j].nome, passageiro[k].nome);
+            naves[i].passageiro[j].idade = passageiro[k].idade;
             
-            naves[i].passageiro[j].IsCrianca = passageiro[j].IsCrianca;
-            naves[i].passageiro[j].IsIdoso = passageiro[j].IsIdoso;
-            naves[i].passageiro[j].IsClandestino = passageiro[j].IsClandestino;
-            naves[i].passageiro[j].IsNobre = passageiro[j].IsNobre;
+            naves[i].passageiro[j].IsCrianca = passageiro[k].IsCrianca;
+            naves[i].passageiro[j].IsIdoso = passageiro[k].IsIdoso;
+            naves[i].passageiro[j].IsClandestino = passageiro[k].IsClandestino;
+            naves[i].passageiro[j].IsNobre = passageiro[k].IsNobre;
             
-            naves[i].passageiro[j].identificador = passageiro[j].identificador;
-            naves[i].passageiro[j].prioridade_pessoal = passageiro[j].prioridade_pessoal;
+            naves[i].passageiro[j].identificador = passageiro[k].identificador;
+            naves[i].passageiro[j].prioridade_pessoal = passageiro[k].prioridade_pessoal;
+
+            k++;
         }
     }
+    free(passageiro);
 
     /*------------------------------------------------------------------------------*/
 
-    imprime_nave(naves[0]);
+    /*for(i = 0; i < 50; i++) {
+        imprime_nave(naves[i]);
+        printf("\n");
+        imprime_tripulacao(naves[i].passageiro, naves[i].lotacao);
+    
+        printf("\n\n");
+    }*/
 
-    //imprime_tripulacao(naves[0].passageiro, naves[0].lotacao);
+    imprime_nave(naves[0]);
+    printf("\n");
+    imprime_tripulacao(naves[0].passageiro, naves[0].lotacao);
+
+    printf("\n\n");
+
+    organiza_heap(naves, naves->ultimo_codigo);
+
+    imprime_nave(naves[0]);
+    printf("\n");
+    imprime_tripulacao(naves[0].passageiro, naves[0].lotacao);
 
     return 0;
 }

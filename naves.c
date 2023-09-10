@@ -40,7 +40,7 @@ void descer(struct Naves v[], int n, int i) {
         v[i] = v[raiz];
         v[raiz] = temp;
 
-        // Chama heapify_down recursivamente no novo nó raiz
+        // Chama descer recursivamente no novo nó raiz
         descer(v, n, raiz);
     }
 }
@@ -60,7 +60,7 @@ void subir(struct Naves v[], int i) {
 }
 
 void organiza_heap(struct Naves v[], int n) {
-    // Chama a função heapify_down para todos os nós não-folha
+    // Chama a função descer para todos os nós até a metade do vetor
     int i;
     for (i = n / 2 - 1; i >= 0; i--) {
         descer(v, n, i);

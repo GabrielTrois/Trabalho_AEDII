@@ -40,7 +40,7 @@ struct Naves {
     int prioridade;
 };
 
-void imprime_nave(struct Naves nave);
+void imprime_nave(struct Naves v);
 
 void descer(struct Naves v[], int n, int i);
 
