@@ -3,7 +3,23 @@
 #include <time.h>
 #include <stdbool.h>
 #include "naves.h"
-#define size 10
+
+void imprime_nave(struct Naves nave) {
+    printf("Capitao: %s\n", nave.passageiro[0].nome);
+    printf("Co-Capitao: %s\n", nave.passageiro[1].nome);
+    printf("Lotacao da nave: %d\n", nave.lotacao);
+    printf("Compartimentos:\n1: %s\n2: %s\n3: %s\n", nave.recursos.compartimento1, nave.recursos.compartimento2, nave.recursos.compartimento3);
+    printf("Prioridade: %d\n", nave.prioridade);
+}
+
+void imprime_tripulacao(struct Tripulacao passageiros[], int size) {
+    for(int i = 0; i < size; i++) {
+       printf("Passageiro %d:\n", i+1);
+       printf("Nome: %s\n", passageiros[i].nome);
+       printf("Idade: %d\n", passageiros[i].idade);
+       printf("ID: %d\n", passageiros[i].identificador);
+    }
+}
 
 void descer(struct Naves v[], int n, int i) {
     int raiz = i; // Inicializa o índice do maior elemento como a raiz
@@ -62,11 +78,4 @@ bool checa_Heap(struct Naves v[], int n) {
         }
     }
     return true;
-}
-
-void imprime_Heap(struct Naves v[], int n) {
-    int i;
-    for(i = 0; i < n; i++) {
-        printf("%d ", v[i].prioridade);
-    }
 }
