@@ -1,50 +1,50 @@
-Resin,Medium Battery,Steel,72,100,83,130
-Nanocarbon Alloy,Power Reservoir,Gold,57,67,30,82
-Electron Vapor,Research Chamber,Trade Platform,25,71,91,90
-Small Printer,Gek Charm,Cryo-Pump,77,29,21,71
-Chemistry Lab,Electron Vapor,Tungsten Carbide,15,25,92,105
-Power Reservoir,Methane,Plutonium,67,55,66,78
-Graphite,Rubber,Korvax Convergence Cube,33,73,45,61
-Grahgrah,Tungsten Carbide,Vehicle Bay,31,92,93,94
-Grahgrah,Malignant Silphium,Atropian Key,31,53,10,80
-Hot Ice,Platinum,Plastic,39,65,64,58
-Atmospheric Condenser,Argon,Gek Charm,9,7,29,54
-Plastic,Malignant Key,Explosive Powder,64,50,27,76
-Graphine,Nitrogen,Tungsten Carbide,32,60,92,100
-Lithium,Sphalerite,Parasites,48,80,63,73
-Iron,Laterite,Sphalerite,43,47,80,74
-Microdensity Fabric,Atmospheric Condenser,Atmospheric Condenser,56,9,9,63
-Tungsten Carbide,Sulfur,Xenoglyph Cipher,92,84,96,149
-Suspension Fluid,Warp Cell,Methane,85,94,55,77
-Soil Centrifuge,Nitrogen,Calibrator,79,60,11,86
-Silicone,Lithium,Malignant Silphium,75,48,53,70
-Malignant Key,Plutonium,Steel,50,66,83,116
-Iridium,Clay,Aluminium,42,17,2,54
-Plastic,Compound,Malignant Silphium,64,18,53,96
-Steel,Hydrogen,Clay,83,41,17,104
-Nitrogen,Gek Charm,Abyssal Key,60,29,1,90
-Korvax Convergence Cube,Iridium,Organic,45,42,62,61
-Chemistry Lab,Wolframite,Aluminum Alloy,15,95,3,94
-Calium,Fascination Bead,Organic,12,28,62,77
-Hadal Key,Nickel,Sulfur,35,59,84,100
-Atropian Key,Vehicle Bay,Hematite,10,93,37,58
-Silicone,Malignant Key,Explosive Powder,75,50,27,75
-Sphalerite,Anathema Key,Aluminum Alloy,80,5,3,56
-Gek Charm,Lithium,Rubber,29,48,73,95
-Hadal Key,Cryo-Pump,Diamond,35,21,23,60
-Cryo-Pump,Gold,Hot Ice,21,30,39,75
-Spoiled Resin,Radnox,Compound,81,70,18,77
-Compound,Silicone,Stat Augment,18,75,82,71
-Tungsten Carbide,Ammonium,Ammonium,92,4,4,65
-Argon,Stat Augment,Laterite,7,82,47,64
-Helium,Soil Centrifuge,Hematite,36,79,37,78
-Medium Battery,Methane,Ammonium,100,55,4,75
-Wolframite,Organic,Power Cells,95,62,98,123
-Silphium,Crolium,Tungsten Carbide,76,20,92,97
-Warp Cell,Suspension Fluid,Nitrogen,94,85,60,71
-Atlas Stone,Parasites,Titanium Alloy,8,63,90,60
-Atmospheric Condenser,Shielding Sheet,Echoing Key,9,74,24,87
-Small Printer,Copper,Chrysonite,77,19,16,59
-Iridium,Hadal Key,Electron Vapor,42,35,25,90
-Tungsten Carbide,Electron Vapor,Fascination Bead,92,25,28,107
-Methane,Sphalerite,Quartz,55,80,68,99
+Resin,Medium Battery,Steel,72,100,83,9,130
+Nanocarbon Alloy,Power Reservoir,Gold,57,67,30,6,82
+Electron Vapor,Research Chamber,Trade Platform,25,71,91,9,90
+Small Printer,Gek Charm,Cryo-Pump,77,29,21,5,71
+Chemistry Lab,Electron Vapor,Tungsten Carbide,15,25,92,10,105
+Power Reservoir,Methane,Plutonium,67,55,66,4,78
+Graphite,Rubber,Korvax Convergence Cube,33,73,45,8,61
+Grahgrah,Tungsten Carbide,Vehicle Bay,31,92,93,3,94
+Grahgrah,Malignant Silphium,Atropian Key,31,53,10,9,80
+Hot Ice,Platinum,Plastic,39,65,64,7,58
+Atmospheric Condenser,Argon,Gek Charm,9,7,29,12,54
+Plastic,Malignant Key,Explosive Powder,64,50,27,8,76
+Graphine,Nitrogen,Tungsten Carbide,32,60,92,11,100
+Lithium,Sphalerite,Parasites,48,80,63,9,73
+Iron,Laterite,Sphalerite,43,47,80,11,74
+Microdensity Fabric,Atmospheric Condenser,Atmospheric Condenser,56,9,9,5,63
+Tungsten Carbide,Sulfur,Xenoglyph Cipher,92,84,96,4,149
+Suspension Fluid,Warp Cell,Methane,85,94,55,3,77
+Soil Centrifuge,Nitrogen,Calibrator,79,60,11,4,86
+Silicone,Lithium,Malignant Silphium,75,48,53,2,70
+Malignant Key,Plutonium,Steel,50,66,83,10,116
+Iridium,Clay,Aluminium,42,17,2,5,54
+Plastic,Compound,Malignant Silphium,64,18,53,5,96
+Steel,Hydrogen,Clay,83,41,17,5,104
+Nitrogen,Gek Charm,Abyssal Key,60,29,1,2,90
+Korvax Convergence Cube,Iridium,Organic,45,42,62,3,61
+Chemistry Lab,Wolframite,Aluminum Alloy,15,95,3,2,94
+Calium,Fascination Bead,Organic,12,28,62,6,77
+Hadal Key,Nickel,Sulfur,35,59,84,11,100
+Atropian Key,Vehicle Bay,Hematite,10,93,37,9,58
+Silicone,Malignant Key,Explosive Powder,75,50,27,12,75
+Sphalerite,Anathema Key,Aluminum Alloy,80,5,3,5,56
+Gek Charm,Lithium,Rubber,29,48,73,9,95
+Hadal Key,Cryo-Pump,Diamond,35,21,23,11,60
+Cryo-Pump,Gold,Hot Ice,21,30,39,2,75
+Spoiled Resin,Radnox,Compound,81,70,18,7,77
+Compound,Silicone,Stat Augment,18,75,82,2,71
+Tungsten Carbide,Ammonium,Ammonium,92,4,4,6,65
+Argon,Stat Augment,Laterite,7,82,47,5,64
+Helium,Soil Centrifuge,Hematite,36,79,37,2,78
+Medium Battery,Methane,Ammonium,100,55,4,2,75
+Wolframite,Organic,Power Cells,95,62,98,9,123
+Silphium,Crolium,Tungsten Carbide,76,20,92,8,97
+Warp Cell,Suspension Fluid,Nitrogen,94,85,60,8,71
+Atlas Stone,Parasites,Titanium Alloy,8,63,90,7,60
+Atmospheric Condenser,Shielding Sheet,Echoing Key,9,74,24,3,87
+Small Printer,Copper,Chrysonite,77,19,16,12,59
+Iridium,Hadal Key,Electron Vapor,42,35,25,10,90
+Tungsten Carbide,Electron Vapor,Fascination Bead,92,25,28,6,107
+Methane,Sphalerite,Quartz,55,80,68,7,99

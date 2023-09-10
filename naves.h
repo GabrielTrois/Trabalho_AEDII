@@ -4,7 +4,7 @@
 #include <stdbool.h>
 
 struct Tripulacao {
-    char nome[20];
+    char nome[50];
     int idade;
 
 //  Checagem para prioridade pessoal
@@ -21,9 +21,9 @@ struct Tripulacao {
 };
 
 struct Compartimentos {
-    char compartimento1[20];
-    char compartimento2[20];
-    char compartimento3[20];
+    char compartimento1[50];
+    char compartimento2[50];
+    char compartimento3[50];
 
     int code[3];
 };
@@ -32,6 +32,8 @@ struct Compartimentos {
 struct Naves {
     struct Tripulacao* passageiro;
     struct Compartimentos recursos;
+
+    int lotacao;
 
     int ultimo_codigo;
 

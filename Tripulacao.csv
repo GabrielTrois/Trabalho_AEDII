@@ -30,7 +30,7 @@ Ezekiel,48,0,0,0,0,0,Varmalus,2,29
 Alice,58,0,0,0,0,0,Sybin,2,30
 Max,68,0,1,0,0,0,Maganlis,4,31
 Oscar,80,0,1,0,0,0,Klensal,4,32
-Beau,89,0,1,0,0,0,"(asteroid, metallic)",8,33
+Beau,89,0,1,0,0,0,(asteroid; metallic),8,33
 Margot,27,0,0,0,0,0,Sesmose,2,34
 Nikau,35,0,0,0,0,0,Antida,2,35
 Ryder,13,0,0,0,0,0,Mingito,2,36
@@ -51,11 +51,11 @@ Logan,58,0,0,0,0,0,Virmire,2,50
 Ruby,25,0,0,0,0,0,Xanadu,2,51
 Arlo,89,0,1,0,0,0,Eletania,4,52
 Heidi,88,0,1,0,0,0,Zakros,4,53
-Summer,76,0,1,0,0,0,"(asteroid, metallic)",8,54
+Summer,76,0,1,0,0,0,(asteroid; metallic),8,54
 George,26,0,0,0,0,0,Pluto,2,55
 Mia,1,1,0,0,0,0,Inti,4,56
 Amaia,53,0,0,0,0,0,Pomal,2,57
-Sienna,59,0,0,0,1,0,"(asteroid, metallic)",2,58
+Sienna,59,0,0,0,1,0,(asteroid; metallic),2,58
 Hazel,11,0,0,0,1,0,Mawinor,1,59
 Amara,16,0,0,0,0,0,Matol,2,60
 Ryan,21,0,0,0,0,0,Tunshagon,2,61
@@ -96,7 +96,7 @@ Carter,40,0,0,0,0,0,Antiroprus,2,95
 Logan,78,0,1,0,0,0,Thegeuse,4,96
 Ryder,76,0,1,0,0,0,Edmos,4,97
 Max,22,0,0,0,0,0,MSV Ontario,2,98
-Aaliyah,88,0,1,0,0,0,"(asteroid, carbonaceous)",8,99
+Aaliyah,88,0,1,0,0,0,(asteroid; carbonaceous),8,99
 Ethan,81,0,1,0,0,0,Parag,4,100
 Cooper,5,1,0,0,0,0,MSV Ontario,4,101
 Zoe,49,0,0,0,0,0,Tharopto,2,102
@@ -117,17 +117,17 @@ Blake,0,1,0,0,0,0,Salamis,4,116
 Bodhi,80,0,1,0,0,0,Altaaya,4,117
 Kora,5,1,0,0,0,0,Wentania,4,118
 Elsie,0,1,0,0,0,0,Nodacrux,4,119
-Jack,28,0,0,0,0,0,"(asteroid, carbonaceous)",4,120
+Jack,28,0,0,0,0,0,(asteroid; carbonaceous),4,120
 Jackson,24,0,0,0,0,0,Mars,2,121
 Thomas,32,0,0,0,0,0,Vemal,2,122
 Ryder,50,0,0,0,1,0,Mingito,1,123
 Alexander,77,0,1,0,0,0,Xawin,4,124
-Zoey,70,0,1,0,0,0,"(asteroid, rocky)",8,125
+Zoey,70,0,1,0,0,0,(asteroid; rocky),8,125
 Roman,76,0,1,0,0,0,Pluto,4,126
-Thea,81,0,1,0,0,0,"(asteroid, metallic)",8,127
+Thea,81,0,1,0,0,0,(asteroid; metallic),8,127
 Imogen,5,1,0,0,0,0,Ageko,4,128
 Toby,83,0,1,0,0,0,Earth,4,129
-Sadie,83,0,1,0,1,0,"(asteroid, metallic)",4,130
+Sadie,83,0,1,0,1,0,(asteroid; metallic),4,130
 Ivy,43,0,0,0,0,0,Cloroplon,2,131
 Maeve,95,0,1,0,0,0,Camaron,4,132
 Harriet,54,0,0,0,0,0,Sharblu,2,133
@@ -141,7 +141,7 @@ Lilly,84,0,1,0,0,0,Theshaca,4,140
 Arthur,79,0,1,0,0,0,Nausicaa,4,141
 Hudson,98,0,1,0,0,0,Zakros,4,142
 Emma,0,1,0,0,0,0,Phaistos,4,143
-Grayson,80,0,1,0,0,0,"(asteroid, rocky)",8,144
+Grayson,80,0,1,0,0,0,(asteroid; rocky),8,144
 Ezra,65,0,1,0,0,0,Vectra,4,145
 Leon,4,1,0,0,0,0,Altanorch,4,146
 Logan,6,1,0,0,0,0,Imaneya,4,147
@@ -154,17 +154,17 @@ Pippa,86,0,1,1,0,0,Hunsalra,8,153
 Leon,81,0,1,0,0,0,Edolus,4,154
 Ella,83,0,1,0,0,0,Agetoton,4,155
 Margot,68,0,1,0,0,0,Svarog,4,156
-Theodore,87,0,1,0,0,0,"(asteroid, rocky)",8,157
+Theodore,87,0,1,0,0,0,(asteroid; rocky),8,157
 Alexander,86,0,1,0,0,0,Patamalrus,4,158
 Amelia,74,0,1,0,0,0,Syba,4,159
 Molly,7,1,0,0,0,0,Almarcrux,4,160
-Emma,31,0,0,0,0,0,"(asteroid, carbonaceous)",4,161
+Emma,31,0,0,0,0,0,(asteroid; carbonaceous),4,161
 Hugo,23,0,0,0,0,0,Quaji,2,162
 Imogen,99,0,1,0,0,0,Xathorron,4,163
 Frederick,39,0,0,0,1,0,Quaji,1,164
 Luka,47,0,0,0,0,0,Morana,2,165
 Jacob,8,1,0,0,0,0,MSV Ontario,4,166
-Willow,54,0,0,0,0,0,"(asteroid, metallic)",4,167
+Willow,54,0,0,0,0,0,(asteroid; metallic),4,167
 Chloe,96,0,1,0,0,0,MSV Majesty,4,168
 William,39,0,0,0,0,0,Earth,2,169
 George,67,0,1,0,0,0,Huningto,4,170
@@ -174,12 +174,12 @@ Isabelle,57,0,0,0,0,0,Feros,2,173
 Samuel,99,0,1,0,1,0,Sharblu,2,174
 Finley,92,0,1,0,0,0,Agebinium,4,175
 Theodore,10,1,0,0,0,0,Nirvana,4,176
-Hunter,5,1,0,0,0,0,"(asteroid, carbonaceous)",8,177
+Hunter,5,1,0,0,0,0,(asteroid; carbonaceous),8,177
 Violet,83,0,1,0,1,0,Chohe,2,178
 Cooper,98,0,1,0,0,0,Metgos,4,179
 Joshua,69,0,1,0,0,0,Circe,4,180
 Jasper,84,0,1,0,0,0,Loki,4,181
-Ethan,65,0,1,0,0,0,"(asteroid, metallic)",8,182
+Ethan,65,0,1,0,0,0,(asteroid; metallic),8,182
 Ezekiel,34,0,0,1,0,0,Eden Prime,4,183
 Ethan,31,0,0,0,0,0,Slekon,2,184
 Toby,48,0,0,0,0,0,Therum,2,185
@@ -207,7 +207,7 @@ Chloe,27,0,0,0,0,0,Clocrolis,2,206
 Harper,45,0,0,0,0,0,Mawinor,2,207
 Jack,69,0,1,0,0,0,Presrop,4,208
 Nina,93,0,1,0,0,0,Trebin,4,209
-Maia,71,0,1,0,0,0,"(asteroid, metallic)",8,210
+Maia,71,0,1,0,0,0,(asteroid; metallic),8,210
 Lachlan,98,0,1,0,0,0,Antibaar,4,211
 Harrison,81,0,1,0,0,0,Jupiter,4,212
 Delilah,40,0,0,0,0,0,Pomal,2,213
@@ -227,14 +227,14 @@ Theodore,32,0,0,0,0,0,Nearrum,2,226
 Scarlett,11,0,0,0,0,0,Sharblu,2,227
 Hazel,32,0,0,0,0,0,Archanes,2,228
 George,14,0,0,0,0,0,Mars,2,229
-Henry,4,1,0,0,0,0,"(asteroid, carbonaceous)",8,230
+Henry,4,1,0,0,0,0,(asteroid; carbonaceous),8,230
 Harvey,8,1,0,0,0,0,Xamarri,4,231
 Alexander,41,0,0,0,0,0,Vebinok,2,232
 Joseph,48,0,0,0,0,0,Borr,2,233
 Eliana,33,0,0,1,0,0,Noveria,4,234
 Henry,37,0,0,0,0,0,Salamis,2,235
-Evie,77,0,1,0,0,0,"(asteroid, rocky)",8,236
-Ryan,22,0,0,0,0,0,"(asteroid, metallic)",4,237
+Evie,77,0,1,0,0,0,(asteroid; rocky),8,236
+Ryan,22,0,0,0,0,0,(asteroid; metallic),4,237
 Felix,70,0,1,0,0,0,Almarcrux,4,238
 Lachlan,90,0,1,0,0,0,Ploba,4,239
 Olive,11,0,0,1,0,0,Casbin,4,240
@@ -252,7 +252,7 @@ River,40,0,0,0,0,1,Clotanca,2,251
 Freya,0,1,0,0,0,0,Nonuel,4,252
 Ethan,97,0,1,1,1,0,Svarog,4,253
 Edward,60,0,1,0,0,0,Earth,4,254
-Harry,91,0,1,0,0,0,"(asteroid, rocky)",8,255
+Harry,91,0,1,0,0,0,(asteroid; rocky),8,255
 Harriet,64,0,1,0,0,0,Rayingri,4,256
 Niko,21,0,0,0,0,0,Hunsalra,2,257
 Lucy,75,0,1,0,0,0,Clugon,4,258
@@ -272,7 +272,7 @@ Isabella,40,0,0,0,0,0,Salamis,2,271
 Angus,59,0,0,0,0,1,Agebinium,2,272
 Isaac,4,1,0,0,0,0,Antida,4,273
 Louie,12,0,0,0,0,0,Terra Nova,2,274
-Hugo,3,1,0,0,0,0,"(asteroid, metallic)",8,275
+Hugo,3,1,0,0,0,0,(asteroid; metallic),8,275
 Lincoln,22,0,0,0,1,0,Pressha,1,276
 Harlow,62,0,1,0,0,0,Sytau,4,277
 Leo,1,1,0,0,0,0,Sharring,4,278
@@ -288,8 +288,8 @@ Nico,15,0,0,0,0,0,Altahe,2,287
 Zion,94,0,1,0,0,0,Therum,4,288
 Quinn,21,0,0,0,0,0,Almos,2,289
 Frankie,62,0,1,0,0,0,Huningto,4,290
-Maddison,8,1,0,0,0,0,"(asteroid, rocky)",8,291
-Kaia,37,0,0,0,0,0,"(asteroid, metallic)",4,292
+Maddison,8,1,0,0,0,0,(asteroid; rocky),8,291
+Kaia,37,0,0,0,0,0,(asteroid; metallic),4,292
 Matthew,57,0,0,0,1,0,Antitarra,1,293
 Matthew,0,1,0,0,0,0,Clomarthu,4,294
 Ari,71,0,1,0,1,0,Derneuca,2,295
@@ -307,10 +307,10 @@ Riley,17,0,0,0,0,0,Intai'sei,2,306
 Georgia,47,0,0,0,0,0,Terra Nova,2,307
 Jack,88,0,1,0,0,0,Circe,4,308
 Harry,39,0,0,0,1,0,Svarog,1,309
-Michael,67,0,1,0,0,1,"(asteroid, metallic)",8,310
+Michael,67,0,1,0,0,1,(asteroid; metallic),8,310
 Amara,56,0,0,0,0,0,Ageko,2,311
 Layla,11,0,0,0,0,0,Tungel,2,312
-Evelyn,34,0,0,0,0,0,"(asteroid, metallic)",4,313
+Evelyn,34,0,0,0,0,0,(asteroid; metallic),4,313
 Frederick,47,0,0,0,0,0,Sesmose,2,314
 Ryan,4,1,0,0,0,0,Morana,4,315
 Michael,66,0,1,0,0,0,Clotanca,4,316

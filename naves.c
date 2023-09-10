@@ -35,7 +35,9 @@ void subir(struct Naves v[], int i) {
 
     // Enquanto o nó atual não for a raiz e for maior que seu pai, troca-os
     while (i > 0 && v[i].prioridade > v[pai].prioridade) {
-        troca(&v[i], &v[pai]);
+        struct Naves temp = v[i];
+        v[i] = v[pai];
+        v[pai] = temp;
         i = pai;
         pai = (i - 1) / 2;
     }
