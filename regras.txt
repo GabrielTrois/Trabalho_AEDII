@@ -1,0 +1,14 @@
+Regras de prioridade - 
+    * Toda Nave possui 10 de prioridade base
+
+    * É somado a prioridade da Nave a soma da prioridade pessoal de todos os passageiros
+
+        * Todos os passageiros possuem 2 de prioridade base
+        * Se o passageiro é criança ou idoso sua prioridade é multiplicada por 2
+        * Se o passageiro é um enfermo sua prioridade é multiplicada por 2
+        * Se o passageiro é nobre sua prioridade é multiplicada por 4
+        * Se o passageiro é clandestino sua prioridade é dividida por 2
+
+    * É somado a prioridade da Nave a soma da prioridade dos recursos carregados por Eliana
+
+        * Cada recurso possui uma prioridade definida

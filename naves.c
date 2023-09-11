@@ -1,24 +1,109 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <stdbool.h>
+#include <string.h>
 #include "naves.h"
+
+int id_global = 330;
+int ultima_nave = 49;
 
 void imprime_nave(struct Naves nave) {
     printf("Capitao: %s\n", nave.passageiro[0].nome);
     printf("Co-Capitao: %s\n", nave.passageiro[1].nome);
     printf("Lotacao da nave: %d\n", nave.lotacao);
     printf("Compartimentos:\n1: %s\n2: %s\n3: %s\n", nave.recursos.compartimento1, nave.recursos.compartimento2, nave.recursos.compartimento3);
-    printf("Prioridade: %d\n", nave.prioridade);
+    printf("Codigos de compartimentos: %d %d %d\n", nave.recursos.code[0], nave.recursos.code[1], nave.recursos.code[2]);
+    printf("Prioridade: %d\n\n", nave.prioridade);
 }
 
 void imprime_tripulacao(struct Tripulacao passageiros[], int size) {
     for(int i = 0; i < size; i++) {
-       printf("Passageiro %d:\n", i+1);
-       printf("Nome: %s\n", passageiros[i].nome);
-       printf("Idade: %d\n", passageiros[i].idade);
-       printf("ID: %d\n", passageiros[i].identificador);
+        printf("Passageiro %d:\n", i+1);
+        printf("Nome: %s\n", passageiros[i].nome);
+        printf("Idade: %d\n", passageiros[i].idade);
+        
+        if(passageiros[i].IsEnfermo == 1) printf("*Enfermo*\n");
+
+        if(passageiros[i].IsClandestino == 1) printf("*Clandestino*\n");
+
+        if(passageiros[i].IsNobre == 1) printf("*Nobre*\n");
+
+        printf("ID: %d\n", passageiros[i].identificador);
+        printf("Prioridade pessoal: %d\n\n", passageiros[i].prioridade_pessoal);
     }
+}
+
+void imprime_recursos(struct RecursosLista* recursos) {
+    for(int i = 0; i < 100; i++) {
+        printf("%s\n", recursos[i].nome);
+        printf("Codigo: %d\n", recursos[i].codigo);
+        printf("Prioridade: %d\n\n", recursos[i].prioridade);
+    }
+}
+
+struct Naves criaNave() {
+    struct Naves temp;
+
+    int i;
+
+    srand(time(NULL));
+
+    temp.prioridade = 10;
+
+    printf("Digite a quantidade de passageiros da Nave: ");
+    scanf("%d", &temp.lotacao);
+    if(temp.lotacao < 2 || temp.lotacao > 12) {
+        printf("Sua tripulacao deve ser no minimo 2 e maximo 12\n\n");
+        return;
+    }
+
+    temp.passageiro = (struct Tripulacao*)malloc(temp.lotacao*sizeof(struct Tripulacao));
+
+    for(i = 0; i < temp.lotacao; i++) {
+        temp.passageiro[i].prioridade_pessoal = 2;
+        temp.passageiro[i].IsCrianca = 0;
+        temp.passageiro[i].IsIdoso = 0;
+        temp.passageiro[i].IsEnfermo = 0;
+        temp.passageiro[i].IsNobre = 0;
+        temp.passageiro[i].IsClandestino = 0;
+
+        printf("Digite o nome do passageiro %d: ", i+1);
+        scanf("%s", temp.passageiro[i].nome);
+        printf("Digite a idade do passageiro %d: ", i+1);
+        scanf("%d", &temp.passageiro[i].idade);
+        printf("Digite o planeta do passageiro %d: ", i+1);
+        scanf("%s", temp.passageiro[i].planeta);
+        printf("1 - sim, 0 - nao\n");
+        printf("O passageiro %d esta doente: ", i+1);
+        scanf("%s", &temp.passageiro[i].IsEnfermo);
+        printf("O passageiro %d e clandestino: ", i+1);
+        scanf("%s", &temp.passageiro[i].IsClandestino);
+        printf("O passageiro %d e nobre: ", i+1);
+        scanf("%s", &temp.passageiro[i].IsNobre);
+
+        printf("\n");
+
+        id_global++;
+
+        temp.passageiro[i].identificador = id_global;
+
+        if(temp.passageiro[i].idade < 18)  temp.passageiro[i].IsCrianca = 1;
+        if(temp.passageiro[i].idade >= 60) temp.passageiro[i].IsIdoso = 1;
+
+        if(temp.passageiro[i].IsCrianca == 1 || temp.passageiro[i].IsIdoso == 1) temp.passageiro[i].prioridade_pessoal *= 2;
+        if(temp.passageiro[i].IsEnfermo == 1) temp.passageiro[i].prioridade_pessoal *= 2;
+        if(temp.passageiro[i].IsClandestino == 1) temp.passageiro[i].prioridade_pessoal /= 2;
+        if(temp.passageiro[i].IsNobre == 1) temp.passageiro[i].prioridade_pessoal *= 4;
+
+        temp.prioridade += temp.passageiro[i].prioridade_pessoal;
+    }
+    
+    for(i = 0; i < 3; i++) {
+        printf("Digite o codigo do recurso do compartimento %d (1 - 100): ", i+1);
+        scanf("%d", &temp.recursos.code[i]);
+    }
+
+    return temp;
 }
 
 void descer(struct Naves v[], int n, int i) {
@@ -67,15 +152,22 @@ void organiza_heap(struct Naves v[], int n) {
     }
 }
 
-bool checa_Heap(struct Naves v[], int n) {
-    int i;
+int inserirNave(struct Naves v[], struct RecursosLista r[]) {
+    if(ultima_nave >= 1000) return -1;
 
-    for(i = 0; i < n / 2; i++) {
-        if(v[i].prioridade < v[2*i].prioridade) return false;
+    ultima_nave++;
 
-        if((2*i)+1 <= n) {
-            if(v[i].prioridade < v[(2*i)+1].prioridade) return false;
-        }
-    }
-    return true;
+    v[ultima_nave] = criaNave();
+
+    strcpy(v[ultima_nave].recursos.compartimento1, r[v[ultima_nave].recursos.code[0]].nome);
+    strcpy(v[ultima_nave].recursos.compartimento2, r[v[ultima_nave].recursos.code[1]].nome);
+    strcpy(v[ultima_nave].recursos.compartimento3, r[v[ultima_nave].recursos.code[2]].nome);
+    
+    v[ultima_nave].prioridade += r[v[ultima_nave].recursos.code[0]].prioridade;
+    v[ultima_nave].prioridade += r[v[ultima_nave].recursos.code[1]].prioridade;
+    v[ultima_nave].prioridade += r[v[ultima_nave].recursos.code[2]].prioridade;
+
+    subir(v, ultima_nave);
+    
+    return 0;
 }

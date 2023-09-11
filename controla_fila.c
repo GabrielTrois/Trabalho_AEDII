@@ -17,34 +17,38 @@ int main() {
         return 1;
     }
 
+    FILE * file3 = fopen ("Recursos.csv", "r");
+    if (! file3 ) {
+        printf (" Erro ao abrir o arquivo .\n");
+        return 1;
+    }
+
     struct Naves naves[1000];
     struct Tripulacao passageiro[330];
+    struct RecursosLista recursos[100];
 
-    int read1 = 0;
-    int records1 = 0;
-    int read2 = 0;
-    int records2 = 0;
+    int read = 0;
+    int records = 0;
 
     int i, j, k = 0;
 
     do{
-        read2 = fscanf(file1,
+        read = fscanf(file1,
                             "%50[^,],%50[^,],%50[^,],%d,%d,%d,%d,%d\n",
-                            naves[records1].recursos.compartimento1,
-                            naves[records1].recursos.compartimento2,
-                            naves[records1].recursos.compartimento3,
-                            &naves[records1].recursos.code[0],
-                            &naves[records1].recursos.code[1],
-                            &naves[records1].recursos.code[2],
-                            &naves[records1].lotacao,
-                            &naves[records1].prioridade);
+                            naves[records].recursos.compartimento1,
+                            naves[records].recursos.compartimento2,
+                            naves[records].recursos.compartimento3,
+                            &naves[records].recursos.code[0],
+                            &naves[records].recursos.code[1],
+                            &naves[records].recursos.code[2],
+                            &naves[records].lotacao,
+                            &naves[records].prioridade);
 
-                            naves->ultimo_codigo = records1;
-        if(read2 == 8){
-            records1++;
+        if(read == 8){
+            records++;
         }
 
-        if (read2 != 8 && !feof(file1)){
+        if (read != 8 && !feof(file1)){
             printf("Formato de arquivo incorreto.\n");
             return 1;
         }
@@ -54,25 +58,28 @@ int main() {
         }
     } while (!feof(file1));
 
-    do{
-        read1 = fscanf(file2,
-                            "%50[^,],%d,%d,%d,%d,%d,%d,%50[^,],%d,%d\n",
-                            passageiro[records2].nome,
-                            &passageiro[records2].idade,
-                            &passageiro[records2].IsCrianca,
-                            &passageiro[records2].IsIdoso,
-                            &passageiro[records2].IsEnfermo,
-                            &passageiro[records2].IsClandestino,
-                            &passageiro[records2].IsNobre,
-                            passageiro[records2].planeta,
-                            &passageiro[records2].prioridade_pessoal,
-                            &passageiro[records2].identificador);
+    read = 0;
+    records = 0;
 
-        if(read1 == 10){
-            records2++;
+    do{
+        read = fscanf(file2,
+                            "%50[^,],%d,%d,%d,%d,%d,%d,%50[^,],%d,%d\n",
+                            passageiro[records].nome,
+                            &passageiro[records].idade,
+                            &passageiro[records].IsCrianca,
+                            &passageiro[records].IsIdoso,
+                            &passageiro[records].IsEnfermo,
+                            &passageiro[records].IsClandestino,
+                            &passageiro[records].IsNobre,
+                            passageiro[records].planeta,
+                            &passageiro[records].prioridade_pessoal,
+                            &passageiro[records].identificador);
+
+        if(read == 10){
+            records++;
         }
 
-        if (read1 != 10 && !feof(file2)){
+        if (read != 10 && !feof(file2)){
             printf("Formato de arquivo incorreto.\n");
             return 1;
         }
@@ -83,8 +90,34 @@ int main() {
 
     } while (!feof(file2));
 
+    read = 0;
+    records = 0;
+
+    do{
+        read = fscanf(file3,
+                            "%50[^,],%d,%d\n",
+                            recursos[records].nome,
+                            &recursos[records].prioridade,
+                            &recursos[records].codigo);
+
+        if(read == 3){
+            records++;
+        }
+
+        if (read != 3 && !feof(file3)){
+            printf("Formato de arquivo incorreto.\n");
+            return 1;
+        }
+
+        if (ferror(file3)){
+            printf("Erro ao ler o arquivo.\n");
+        }
+
+    } while (!feof(file3));
+
     fclose(file1);
     fclose(file2);
+    fclose(file3);
 
     for(i = 0; i < 330; i++) {
         naves[i].passageiro = (struct Tripulacao*)malloc(naves[i].lotacao*sizeof(struct Tripulacao));
@@ -108,25 +141,12 @@ int main() {
 
     /*------------------------------------------------------------------------------*/
 
-    /*for(i = 0; i < 50; i++) {
-        imprime_nave(naves[i]);
-        printf("\n");
-        imprime_tripulacao(naves[i].passageiro, naves[i].lotacao);
-    
-        printf("\n\n");
-    }*/
+    organiza_heap(naves, ultima_nave);
 
-    imprime_nave(naves[0]);
-    printf("\n");
-    imprime_tripulacao(naves[0].passageiro, naves[0].lotacao);
+    inserirNave(naves, recursos);
 
-    printf("\n\n");
-
-    organiza_heap(naves, naves->ultimo_codigo);
-
-    imprime_nave(naves[0]);
-    printf("\n");
-    imprime_tripulacao(naves[0].passageiro, naves[0].lotacao);
+    imprime_nave(naves[50]);
+    imprime_tripulacao(naves[50].passageiro, naves[50].lotacao);
 
     return 0;
 }

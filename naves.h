@@ -1,8 +1,6 @@
 #ifndef NAVES_H_INCLUDED
 #define NAVES_H_INCLUDED
 
-#include <stdbool.h>
-
 struct Tripulacao {
     char nome[50];
     int idade;
@@ -28,6 +26,11 @@ struct Compartimentos {
     int code[3];
 };
 
+struct RecursosLista {
+    char nome[50];
+    int codigo;
+    int prioridade;
+};
 
 struct Naves {
     struct Tripulacao* passageiro;
@@ -35,12 +38,16 @@ struct Naves {
 
     int lotacao;
 
-    int ultimo_codigo;
-
     int prioridade;
 };
 
 void imprime_nave(struct Naves v);
+
+void imprime_tripulacao(struct Tripulacao t[], int size);
+
+void imprime_recursos(struct RecursosLista* recursos);
+
+struct Naves criaNave();
 
 void descer(struct Naves v[], int n, int i);
 
@@ -48,6 +55,6 @@ void subir(struct Naves v[], int i);
 
 void organiza_heap(struct Naves v[], int n);
 
-bool checa_Heap(struct Naves v[], int n);
+int inserirNave(struct Naves v[], struct RecursosLista r[]);
 
 #endif // NAVES_H_INCLUDED
