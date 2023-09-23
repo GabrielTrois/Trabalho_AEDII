@@ -99,9 +99,10 @@ struct Naves criaNave() {
     }
     
     for(i = 0; i < 3; i++) {
-        printf("Digite o codigo do recurso do compartimento %d (1 - 100): ", i+1);
+        printf("Digite o codigo do recurso do compartimento %d (1 - 6): ", i+1);
         scanf("%d", &temp.recursos.code[i]);
     }
+    printf("\n");
 
     return temp;
 }

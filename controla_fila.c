@@ -97,8 +97,8 @@ int main() {
         read = fscanf(file3,
                             "%50[^,],%d,%d\n",
                             recursos[records].nome,
-                            &recursos[records].prioridade,
-                            &recursos[records].codigo);
+                            &recursos[records].codigo,
+                            &recursos[records].prioridade);
 
         if(read == 3){
             records++;
