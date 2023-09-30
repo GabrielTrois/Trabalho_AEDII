@@ -153,7 +153,7 @@ void organiza_heap(struct Naves v[], int n) {
     }
 }
 
-int inserirNave(struct Naves v[], struct RecursosLista r[]) {
+int inserir_nave(struct Naves v[], struct RecursosLista r[]) {
     if(ultima_nave >= 1000) return -1;
 
     ultima_nave++;
@@ -171,4 +171,48 @@ int inserirNave(struct Naves v[], struct RecursosLista r[]) {
     subir(v, ultima_nave);
     
     return 0;
+}
+
+void remove_heap(struct Naves v[]) {
+    v[0] = v[ultima_nave];
+
+    ultima_nave--;
+
+    descer(v, ultima_nave, 0);
+}
+
+void remove_nave(struct Naves v[]) {
+    int i, j = 0;
+    int *cont;
+
+    cont = (int*)malloc(sizeof(int));
+    
+    for(i = 1; i < ultima_nave; i++) {
+        if(v[0].recursos.code[0] == v[i].recursos.code[0] || v[0].recursos.code[0] == v[i].recursos.code[1] || v[0].recursos.code[0] == v[i].recursos.code[2]) {
+            if(v[0].recursos.code[1] == v[i].recursos.code[0] || v[0].recursos.code[1] == v[i].recursos.code[1] || v[0].recursos.code[1] == v[i].recursos.code[2]) {
+                if(v[0].recursos.code[2] == v[i].recursos.code[0] || v[0].recursos.code[2] == v[i].recursos.code[1] || v[0].recursos.code[2] == v[i].recursos.code[2]) {
+                    cont[j] = i;
+                    j++;
+                    cont = realloc(cont, sizeof(int)*(j+1));
+                }
+            }
+        }
+    }
+
+    remove_heap(v);
+
+    int operation;
+
+    if(j > 0) {
+        printf("Foram encontradas %d naves carregando os mesmos materiais, deseja libera-las da fila(1 - sim, 2 - nao): ", j);
+        scanf("%d", &operation);
+
+        if(operation == 1) {
+            for(i = 0; i < j; i++) {
+                v[cont[i]].prioridade = v[0].prioridade + 1;
+                subir(v, cont[i]);
+                remove_heap(v);
+            }
+        }
+    }
 }

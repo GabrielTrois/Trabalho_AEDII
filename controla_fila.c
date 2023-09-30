@@ -142,11 +142,16 @@ int main() {
     /*------------------------------------------------------------------------------*/
 
     organiza_heap(naves, ultima_nave);
+    
+printf("\nNaves: %d\n", ultima_nave);
 
-    inserirNave(naves, recursos);
+    remove_nave(naves);
 
-    imprime_nave(naves[50]);
-    imprime_tripulacao(naves[50].passageiro, naves[50].lotacao);
+    printf("\nNaves: %d\n", ultima_nave);
+
+    remove_nave(naves);
+
+    printf("\nNaves: %d\n", ultima_nave);
 
     return 0;
 }

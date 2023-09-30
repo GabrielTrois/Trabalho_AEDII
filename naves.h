@@ -55,6 +55,10 @@ void subir(struct Naves v[], int i);
 
 void organiza_heap(struct Naves v[], int n);
 
-int inserirNave(struct Naves v[], struct RecursosLista r[]);
+int inserir_nave(struct Naves v[], struct RecursosLista r[]);
+
+void remove_heap(struct Naves v[]);
+
+void remove_nave(struct Naves v[]);
 
 #endif // NAVES_H_INCLUDED
