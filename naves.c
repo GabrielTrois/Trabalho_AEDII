@@ -7,21 +7,23 @@
 int id_global = 330;
 int ultima_nave = 49;
 
+// Função que imprime o conteudo da Nave
 void imprime_nave(struct Naves nave) {
-    printf("Capitao: %s\n", nave.passageiro[0].nome);
-    printf("Co-Capitao: %s\n", nave.passageiro[1].nome);
+    printf("Capitao: %s\n", nave.passageiro[0].nome); //Primeiro passageiro é o capitão
+    printf("Co-Capitao: %s\n", nave.passageiro[1].nome); //Segundo passageiro é o co-capitão
     printf("Lotacao da nave: %d\n", nave.lotacao);
     printf("Compartimentos:\n1: %s\n2: %s\n3: %s\n", nave.recursos.compartimento1, nave.recursos.compartimento2, nave.recursos.compartimento3);
     printf("Codigos de compartimentos: %d %d %d\n", nave.recursos.code[0], nave.recursos.code[1], nave.recursos.code[2]);
     printf("Prioridade: %d\n\n", nave.prioridade);
 }
 
+// Função que imprime as informações da Tripulação da Nave
 void imprime_tripulacao(struct Tripulacao passageiros[], int size) {
     for(int i = 0; i < size; i++) {
         printf("Passageiro %d:\n", i+1);
         printf("Nome: %s\n", passageiros[i].nome);
         printf("Idade: %d\n", passageiros[i].idade);
-        
+
         if(passageiros[i].IsEnfermo == 1) printf("*Enfermo*\n");
 
         if(passageiros[i].IsClandestino == 1) printf("*Clandestino*\n");
@@ -33,32 +35,26 @@ void imprime_tripulacao(struct Tripulacao passageiros[], int size) {
     }
 }
 
-void imprime_recursos(struct RecursosLista* recursos) {
-    for(int i = 0; i < 100; i++) {
-        printf("%s\n", recursos[i].nome);
-        printf("Codigo: %d\n", recursos[i].codigo);
-        printf("Prioridade: %d\n\n", recursos[i].prioridade);
-    }
-}
-
+// Função que criar naves com todas as informações necessarias
 struct Naves criaNave() {
-    struct Naves temp;
+    struct Naves temp; // Nave temporaria
 
     int i;
 
     srand(time(NULL));
 
-    temp.prioridade = 10;
+    temp.prioridade = 10; // Prioridade inicial
 
     printf("Digite a quantidade de passageiros da Nave: ");
     scanf("%d", &temp.lotacao);
-    if(temp.lotacao < 2 || temp.lotacao > 12) {
-        printf("Sua tripulacao deve ser no minimo 2 e maximo 12\n\n");
-        return;
+    while(temp.lotacao < 2 || temp.lotacao > 12) {
+        printf("Sua tripulacao deve ser no minimo 2 e maximo 12: \n\n");
+        scanf("%d", &temp.lotacao);
     }
 
     temp.passageiro = (struct Tripulacao*)malloc(temp.lotacao*sizeof(struct Tripulacao));
 
+//  Define passageiros da Nave
     for(i = 0; i < temp.lotacao; i++) {
         temp.passageiro[i].prioridade_pessoal = 2;
         temp.passageiro[i].IsCrianca = 0;
@@ -83,7 +79,7 @@ struct Naves criaNave() {
 
         printf("\n");
 
-        id_global++;
+        id_global++; // Almenta o id global para definir novos Tripulantes
 
         temp.passageiro[i].identificador = id_global;
 
@@ -100,13 +96,14 @@ struct Naves criaNave() {
     
     for(i = 0; i < 3; i++) {
         printf("Digite o codigo do recurso do compartimento %d (1 - 6): ", i+1);
-        scanf("%d", &temp.recursos.code[i]);
+        scanf("%d", &temp.recursos.code[i]); // Define o codigo dos recursos
     }
     printf("\n");
 
     return temp;
 }
 
+// Função para descer termos em um heap
 void descer(struct Naves v[], int n, int i) {
     int raiz = i; // Inicializa o índice do maior elemento como a raiz
     int esq = 2 * i + 1; // Índice do filho esquerdo
@@ -131,7 +128,7 @@ void descer(struct Naves v[], int n, int i) {
     }
 }
 
-// Função para realizar o heapify-up (subir) em um heap
+// Função para subir termos em um heap
 void subir(struct Naves v[], int i) {
     int pai = (i - 1) / 2;
 
@@ -153,13 +150,15 @@ void organiza_heap(struct Naves v[], int n) {
     }
 }
 
+// Função de inserção em um heap
 int inserir_nave(struct Naves v[], struct RecursosLista r[]) {
-    if(ultima_nave >= 1000) return -1;
+    if(ultima_nave >= 1000) return -1; // 1000 é o limite de Naves na Fila
 
     ultima_nave++;
 
-    v[ultima_nave] = criaNave();
+    v[ultima_nave] = criaNave(); // Chama criaNave()
 
+//  Define os recursos usando o codigo dado e a lista de Recursos
     strcpy(v[ultima_nave].recursos.compartimento1, r[v[ultima_nave].recursos.code[0]].nome);
     strcpy(v[ultima_nave].recursos.compartimento2, r[v[ultima_nave].recursos.code[1]].nome);
     strcpy(v[ultima_nave].recursos.compartimento3, r[v[ultima_nave].recursos.code[2]].nome);
@@ -168,11 +167,12 @@ int inserir_nave(struct Naves v[], struct RecursosLista r[]) {
     v[ultima_nave].prioridade += r[v[ultima_nave].recursos.code[1]].prioridade;
     v[ultima_nave].prioridade += r[v[ultima_nave].recursos.code[2]].prioridade;
 
-    subir(v, ultima_nave);
+    subir(v, ultima_nave); // Coloca termo no lugar certo do Heap
     
     return 0;
 }
 
+// Remove o primeiro termo de um Heap
 void remove_heap(struct Naves v[]) {
     v[0] = v[ultima_nave];
 
@@ -181,13 +181,14 @@ void remove_heap(struct Naves v[]) {
     descer(v, ultima_nave, 0);
 }
 
+// Função de remoção na Fila, com o caso especial da abertura da fenda
 void remove_nave(struct Naves v[]) {
     int i, j = 0;
-    int *cont;
+    int *cont; // Salva o indice de Naves que carregam uma permutação dos mesmos recursos
 
     cont = (int*)malloc(sizeof(int));
     
-    for(i = 1; i < ultima_nave; i++) {
+    for(i = 1; i < ultima_nave; i++) { // Faz a checagem de cargas de recursos iguais
         if(v[0].recursos.code[0] == v[i].recursos.code[0] || v[0].recursos.code[0] == v[i].recursos.code[1] || v[0].recursos.code[0] == v[i].recursos.code[2]) {
             if(v[0].recursos.code[1] == v[i].recursos.code[0] || v[0].recursos.code[1] == v[i].recursos.code[1] || v[0].recursos.code[1] == v[i].recursos.code[2]) {
                 if(v[0].recursos.code[2] == v[i].recursos.code[0] || v[0].recursos.code[2] == v[i].recursos.code[1] || v[0].recursos.code[2] == v[i].recursos.code[2]) {
@@ -199,19 +200,19 @@ void remove_nave(struct Naves v[]) {
         }
     }
 
-    remove_heap(v);
+    remove_heap(v); // Remove termo que deveria ser removido
 
     int operation;
 
     if(j > 0) {
         printf("Foram encontradas %d naves carregando os mesmos materiais, deseja libera-las da fila(1 - sim, 2 - nao): ", j);
-        scanf("%d", &operation);
+        scanf("%d", &operation); // A escolha é dada ao operador se ele libera ou não naves para aproveitar a abertura da fenda
 
         if(operation == 1) {
             for(i = 0; i < j; i++) {
                 v[cont[i]].prioridade = v[0].prioridade + 1;
-                subir(v, cont[i]);
-                remove_heap(v);
+                subir(v, cont[i]); // Coloca o termo no topo do Heap
+                remove_heap(v); // O remove
             }
         }
     }
