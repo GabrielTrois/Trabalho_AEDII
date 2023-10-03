@@ -45,8 +45,6 @@ void imprime_nave(struct Naves v);
 
 void imprime_tripulacao(struct Tripulacao t[], int size);
 
-void imprime_recursos(struct RecursosLista* recursos);
-
 struct Naves criaNave();
 
 void descer(struct Naves v[], int n, int i);
