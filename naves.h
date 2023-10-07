@@ -49,7 +49,7 @@ struct Naves criaNave();
 
 void descer(struct Naves v[], int n, int i);
 
-void subir(struct Naves v[], int i);
+int subir(struct Naves v[], int i);
 
 void organiza_heap(struct Naves v[], int n);
 

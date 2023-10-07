@@ -48,7 +48,7 @@ struct Naves criaNave() {
     printf("Digite a quantidade de passageiros da Nave: ");
     scanf("%d", &temp.lotacao);
     while(temp.lotacao < 2 || temp.lotacao > 12) {
-        printf("Sua tripulacao deve ser no minimo 2 e maximo 12: \n\n");
+        printf("Sua tripulacao deve ser no minimo 2 e maximo 12: ");
         scanf("%d", &temp.lotacao);
     }
 
@@ -129,7 +129,7 @@ void descer(struct Naves v[], int n, int i) {
 }
 
 // Função para subir termos em um heap
-void subir(struct Naves v[], int i) {
+int subir(struct Naves v[], int i) {
     int pai = (i - 1) / 2;
 
     // Enquanto o nó atual não for a raiz e for maior que seu pai, troca-os
@@ -140,6 +140,8 @@ void subir(struct Naves v[], int i) {
         i = pai;
         pai = (i - 1) / 2;
     }
+
+    return i;
 }
 
 void organiza_heap(struct Naves v[], int n) {
@@ -159,17 +161,28 @@ int inserir_nave(struct Naves v[], struct RecursosLista r[]) {
     v[ultima_nave] = criaNave(); // Chama criaNave()
 
 //  Define os recursos usando o codigo dado e a lista de Recursos
-    strcpy(v[ultima_nave].recursos.compartimento1, r[v[ultima_nave].recursos.code[0]].nome);
-    strcpy(v[ultima_nave].recursos.compartimento2, r[v[ultima_nave].recursos.code[1]].nome);
-    strcpy(v[ultima_nave].recursos.compartimento3, r[v[ultima_nave].recursos.code[2]].nome);
+    strcpy(v[ultima_nave].recursos.compartimento1, r[v[ultima_nave].recursos.code[0]-1].nome);
+    strcpy(v[ultima_nave].recursos.compartimento2, r[v[ultima_nave].recursos.code[1]-1].nome);
+    strcpy(v[ultima_nave].recursos.compartimento3, r[v[ultima_nave].recursos.code[2]-1].nome);
     
     v[ultima_nave].prioridade += r[v[ultima_nave].recursos.code[0]].prioridade;
     v[ultima_nave].prioridade += r[v[ultima_nave].recursos.code[1]].prioridade;
     v[ultima_nave].prioridade += r[v[ultima_nave].recursos.code[2]].prioridade;
 
-    subir(v, ultima_nave); // Coloca termo no lugar certo do Heap
+    int p;
+
+    printf("1 - sim, 0 - nao\n");
+    printf("Deseja colocar uma prioridade ou calcular automaticamente (prioridade calculada = %d): ", v[ultima_nave].prioridade);
+    scanf("%d", &p);
+
+    if(p == 1) {
+        printf("Digite a priridade: ");
+        scanf("%d", &v[ultima_nave].prioridade);
+    }
+
+    int i = subir(v, ultima_nave); // Coloca termo no lugar certo do Heap
     
-    return 0;
+    return i + 1;
 }
 
 // Remove o primeiro termo de um Heap

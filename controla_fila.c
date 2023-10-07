@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 #include "naves.h"
 #include "naves.c"
 
@@ -142,16 +143,67 @@ int main() {
     /*------------------------------------------------------------------------------*/
 
     organiza_heap(naves, ultima_nave);
+
+    int atual = 1;
+    int op;
     
-printf("\nNaves: %d\n", ultima_nave);
+    while(1) {
+        printf("Existe %d naves na fila\n", ultima_nave + 1);
+        printf("Exibindo nave na posicao %d da fila\n\n", atual);
+        imprime_nave(naves[atual-1]);
 
-    remove_nave(naves);
+        printf("1 - Exibir nave\n");
+        printf("2 - Adicionar nave\n");
+        printf("3 - Liberar Nave\n");
+        printf("4 - Imprime fila completa\n");
 
-    printf("\nNaves: %d\n", ultima_nave);
+        printf("Digite a operacao: ");
+        scanf("%d", &op);
+        printf("\n");
 
-    remove_nave(naves);
+        switch (op)
+        {
+        case 1:
+            printf("Digite a posicao da nave na fila: ");
+            scanf("%d", &atual);
+            if(atual > ultima_nave + 1 || atual < 1) {
+                printf("Posicao fora da fila\n\n");
+                system("pause");
+                atual = 1;
+            }
+            break;
+        case 2:
+            printf("Insira as informacoes da Nave\n");
+            system("pause");
+            system("cls");
+            printf("Nave inserida na posicao %d\n", inserir_nave(naves, recursos));
+            system("pause");
+            break;
+        
+        case 3:
+            remove_nave(naves);
+            printf("Nave(s) Removida(s)\n");
+            system("pause");
+            break;
 
-    printf("\nNaves: %d\n", ultima_nave);
+        case 4:
+            system("cls");
+            for(i = 0; i < ultima_nave + 1; i++){
+                printf("Exibindo nave na posicao %d da fila\n\n", i+1);
+                imprime_nave(naves[i]);
+                printf("\n");
+            }
+            system("pause");
+            break;
+        
+        default:
+            printf("Insira uma operacao valida\n");
+            system("pause");
+            break;
+        }
+
+        system("cls");
+    }
 
     return 0;
 }
