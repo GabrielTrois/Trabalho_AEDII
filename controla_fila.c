@@ -146,6 +146,7 @@ int main() {
 
     int atual = 1;
     int op;
+    int mensagem = 1;
     
     while(1) {
         printf("Existe %d naves na fila\n", ultima_nave + 1);
@@ -156,6 +157,12 @@ int main() {
         printf("2 - Adicionar nave\n");
         printf("3 - Liberar Nave\n");
         printf("4 - Imprime fila completa\n");
+        printf("5 - Imprime passageiros da nave\n");
+        if(mensagem == 1) {
+            printf("6 - Exibir mensagens(1)\n");
+        } else {
+            printf("6 - Exibir mensagens\n");
+        }
 
         printf("Digite a operacao: ");
         scanf("%d", &op);
@@ -193,6 +200,23 @@ int main() {
                 imprime_nave(naves[i]);
                 printf("\n");
             }
+            system("pause");
+            break;
+        
+        case 5:
+            system("cls");
+            printf("Exibindo Tripulantes da Nave de posicao %d da fila\n\n");
+            imprime_tripulacao(naves[atual-1].passageiro, naves[atual-1].lotacao);
+            system("pause");
+            break;
+
+        case 6:
+            system("cls");
+            printf("IMPORTANTE - Novas instrucoes\n");
+            printf("Foi observado dilatacoes na fenda de passagem das naves, permitindo que mais naves passem de uma vez.\n");
+            printf("Esta anomalia causa com que a fenda se abra em ate X vezes, sendo X a quantidade da naves na fila que carregam permutacoes dos mesmos recursos\n");
+            printf("Porem tome cuidado!!! Ao passar muitas naves ao mesmo tempo ha a chance da fenda fechar destruindo as naves\n");
+            mensagem = 0;
             system("pause");
             break;
         

@@ -217,16 +217,27 @@ void remove_nave(struct Naves v[]) {
 
     int operation;
 
+    int destruiu = 0;
+
+    srand(time(NULL));
+
     if(j > 0) {
-        printf("Foram encontradas %d naves carregando os mesmos materiais, deseja libera-las da fila(1 - sim, 2 - nao): ", j);
+        printf("Foram encontradas %d naves carregando os mesmos materiais, deseja as %d primeiras da fila(1 - sim, 2 - nao): ", j, j);
         scanf("%d", &operation); // A escolha é dada ao operador se ele libera ou não naves para aproveitar a abertura da fenda
 
         if(operation == 1) {
             for(i = 0; i < j; i++) {
-                v[cont[i]].prioridade = v[0].prioridade + 1;
-                subir(v, cont[i]); // Coloca o termo no topo do Heap
-                remove_heap(v); // O remove
+                if((rand()%10) == 1) {
+                    destruiu++;
+                }
+                if(destruiu > 0) {
+                    remove_heap(v); // Nave Destruida
+                    destruiu++;
+                } else {
+                    remove_heap(v); // Remove
+                }
             }
+        if(destruiu > 0) printf("Fenda fechou abruptamente!! %d nave(s) destruida(s)\n", destruiu);
         }
     }
 }
