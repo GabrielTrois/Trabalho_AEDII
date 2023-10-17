@@ -9,7 +9,7 @@ Remover_Arvore_B(Tree, chave)
 		Remove(chave)
 
 		Se numero de chaves < d // A arvore precisa ser Redistribuida
-			Checa se os nos irmaos possuem mais que d em numero de chaves
+			Checa se a soma da páginas com os irmãos possuem mais que ou igual a 2d em numero de chaves
 			Se sim
 				Redistribuição
 			Se não
@@ -20,7 +20,7 @@ Remover_Arvore_B(Tree, chave)
 		Remove(chave)
 
 		Se numero de chaves < d // A arvore precisa ser Redistribuida
-			Checa se os nos irmaos possuem mais que d em numero de chaves
+			Checa se a soma da páginas com os irmãos possuem mais que ou igual a 2d em numero de chaves
 			Se sim
 				Redistribuição
 			Se não
@@ -28,7 +28,7 @@ Remover_Arvore_B(Tree, chave)
 
 
 Redistribuição -
-	A chave pai cai para a pagina onde foi removido a chave, se a chave foi removida a esquerda, a primeira chave do irmão > d sobe para onde estava o no pai, se for a direita, sera a ultima, isto é feito até as paginas filhas ficarem balanceadas
+	A chave pai cai para a pagina onde foi removido a chave, se a chave foi removida a esquerda, a primeira chave do irmão sobe para onde estava o no pai, se for a direita, sera a ultima, isto é feito até as paginas filhas ficarem balanceadas
 
 Concatenação - 
-	Neste caso a Redistribuição não pode ser feita, logo o irmão da pagina possui <= d chaves, iremos trazer a chave do pai para onde foi removido a chave, logo apos iremos unir as duas paginas filhas, como a pagina pai perdeu uma chave, ela tambem perde um dos ponteiros que agora não tem para onde apontar
+	Neste caso a Redistribuição não pode ser feita, logo a soma da página com o irmão da pagina possui < d chaves, iremos trazer a chave do pai para onde foi removido a chave, logo apos iremos unir as duas paginas filhas, como a pagina pai perdeu uma chave, ela tambem perde um dos ponteiros que apontava para a chave que foi concatenada
