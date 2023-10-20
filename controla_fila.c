@@ -6,19 +6,19 @@
 
 int main() {
 
-    FILE * file1 = fopen ("Naves.csv", "r");
+    FILE * file1 = fopen ("assets/Naves.csv", "r");
     if (! file1 ) {
         printf (" Erro ao abrir o arquivo .\n");
         return 1;
     }
 
-    FILE * file2 = fopen ("Tripulacao.csv", "r");
+    FILE * file2 = fopen ("assets/Tripulacao.csv", "r");
     if (! file2 ) {
         printf (" Erro ao abrir o arquivo .\n");
         return 1;
     }
 
-    FILE * file3 = fopen ("Recursos.csv", "r");
+    FILE * file3 = fopen ("assets/Recursos.csv", "r");
     if (! file3 ) {
         printf (" Erro ao abrir o arquivo .\n");
         return 1;
